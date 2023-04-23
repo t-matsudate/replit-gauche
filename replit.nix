@@ -1,5 +1,5 @@
 { pkgs }: {
-    deps = {
+    deps = [
         pkgs.gauche
-    };
+    ];
 }
