@@ -1,0 +1,4 @@
+run = "gosh main.scm"
+
+[nix]
+channel = "stable-22.11"
