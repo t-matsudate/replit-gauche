@@ -1,4 +1,4 @@
-(add-load-path "./" :relative)
+(add-load-path "./")
 (use abc086a)
 (use abc081a)
 
