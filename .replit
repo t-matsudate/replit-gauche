@@ -1,0 +1,7 @@
+run = "gosh ./main.scm"
+
+[nix]
+channel = "stable-23_11"
+
+[deployment]
+run = ["gosh", "./main.scm"]
