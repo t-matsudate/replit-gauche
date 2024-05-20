@@ -44,10 +44,10 @@
     (if (null? sequence)
         ret
         (let* ((item (car sequence))
-               (frequency (list item (length (take-while (^(x) (equal? item x)) sequence)))))
+               (frequency (list item (length (take-while (lambda (x) (equal? item x)) sequence)))))
           (seq->freq (cons frequency ret)
-                     (drop-while (^(x) (equal? item x)) sequence)))))
-  (seq->freq '() (sort sequence order-by-desc)))
+                     (drop-while (lambda (x) (equal? item x)) sequence)))))
+  (seq->freq '() (sort sequence order-by-asc)))
 
 ; 度数分布から Huffman 木を生成する手続き群。
 ; make-leaf: 度数分布の要素を Huffman 木の葉に変換する。
@@ -106,6 +106,6 @@
   (if (null? pairs)
       '()
       (let ((pair (car pairs)))
-        (adjoin-set (make-leaf (car pair)
-                               (cadr pair))
+        (adjoin-set (make-leaf (car pair)    ; 記号
+                               (cadr pair))  ; 頻度
                     (make-leaf-set (cdr pairs))))))
